@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌦️ Weather Classifier</h1>
+            <p>Upload an image to detect weather conditions!</p>
+        </header>
+
+        <div class="error-message hidden" id="errorMessage">
+            <span id="errorText"></span>
+            <button onclick="hideError()">×</button>
+        </div>
+
+        <div class="upload-box" id="uploadBox">
+            <input type="file" id="fileInput" accept="image/*">
+            <label for="fileInput" class="upload-label">
+                <span>📁 Choose an Image</span>
+                <p>or drag and drop here</p>
+            </label>
+        </div>
+
+        <div class="image-preview hidden" id="imagePreviewContainer">
+            <img id="imagePreview" src="#" alt="Preview">
+        </div>
+
+        <div class="spinner hidden" id="spinner"></div>
+
+        <div class="result">
+            <div class="weather-card hidden" id="weatherCard">
+                <h2>Prediction: <span id="predictionValue">-</span></h2>
+                <p>Confidence: <span id="confidenceValue">-</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
